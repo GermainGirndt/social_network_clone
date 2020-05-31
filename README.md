@@ -1,1 +1,6 @@
-# social_network_clone
+# Social Network Clone
+Creating a social network using Django
+
+
+### Credits
+Inspirated by Jose Portilla's Django tutorial.
