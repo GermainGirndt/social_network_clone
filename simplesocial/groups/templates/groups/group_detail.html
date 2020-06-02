@@ -1,0 +1,32 @@
+{% extends "groups/group_base.html" %}
+
+{% block pregroup %}
+	<!-- group comes from class based view. Its just the lower case class name (Group) -->
+	<h1>{{ group.name }}</h1>
+	<h2>Member Count: {{ group.members.count }}</h2>
+
+	<session class="content">
+	{% if user in group.members.all %}
+		<a href="{% url 'groups:leave' slug=group.slug %}" ><div class='btn btn-lg btn-fill btn-warning'>Leave</div></a>
+	{% else %}
+		<a href="{% url 'groups:join' slug=group.slug %}"><div class='btn btn-lg btn-fill btn-warning'>Join</div></a>
+	{% endif %}
+	</session>
+{% endblock pregroup %}
+
+
+
+{% block group_content %}
+	{% if group.posts.count == 0 %}
+	<h2>No posts in this group yet!</h2>
+	{% else %}
+	<div class="list-group">
+		{% for post in group.posts.all  %}
+				<!-- Include is like extends, but injects (INCLUDE) directly in the html file-->
+				{% include "posts/_post.html" %}
+		{% endfor %}
+	</div>
+		
+	{% endif %}
+	
+{% endblock group_content %}

@@ -3,6 +3,7 @@
 
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<title>Star Social</title>
 
@@ -17,29 +18,35 @@
 
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
 
+	<link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+
 	<link rel="stylesheet" type="text/css" href="{% static 'simplesocial/css/master.css' %}">
 </head>
 
 <body>
-	<nav class='navbar mynav' role='navigation' id='navbar'></nav>
+	<nav class='navbar navbar-expand-lg navbar-dark bg-dark mynav' role='navigation' id='navbar'>
 	<div class="container">
-		<a class='navbar-brand mynav' href="{% url 'home' %}">Star Social</a>
+		<a class='navbar-brand mynav' href="{% url 'home' %}" class='mynav-content'><strong>Star Social</strong></a>
 		<ul class="nav navbar-nav navbar-right">
 			{% if user.is_authenticated %}
-				<li><a href="#">Post</a></li>
-				<li><a href="#">Groups</a></li>
-				<li><a href="#">Create Group</a></li>
-				<li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+				<li><a href="{% url 'posts:new' %}" class='mynav-content'>Post</a></li>
+				<li><a href="{% url 'groups:all' %}" class='mynav-content'>Groups</a></li>
+				<li><a href="{% url 'groups:create' %}" class='mynav-content'>Create Group</a></li>
+				<li><a href="{% url 'accounts:logout' %}" class='mynav-content'>Log Out</a></li>
 			{% else %}
-				<li><a href="#">Groups</a></li>
-				<li><a href="{% url 'accounts:login' %}">Log In</a></li>
-				<li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+				<li><a href="{% url 'groups:all' %}" class='mynav-content'>Groups</a></li>
+				<li><a href="{% url 'accounts:login' %}" class='mynav-content'>Log In</a></li>
+				<li><a href="{% url 'accounts:signup' %}" class='mynav-content'>Sign Up</a></li>
 			{% endif %}
 		</ul>
 	</div>
+	</nav>
 	<div class="container mycontent">
 		{% block content %}
 		{% endblock content %}
 	</div>
+
+<canvas id="canvas"></canvas>
+<script type="text/javascript" src="{% static 'simplesocial/js/master.js' %}"></script>
 </body>
 </html>

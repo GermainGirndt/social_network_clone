@@ -1,1 +1,28 @@
 <!-- We inject it into other html files -->
+
+<div class="post media ">
+	<h3>{{ post.message_html|safe }}</h3>
+	<div class="media-body list-group-item list-group-item-action list-group-item-primary bg">
+		<h5 class="media-heading">	
+			<span class="username">
+				<a href="{% url 'posts:for_user' username=post.user.username %}">
+					@{{ post.user.username }}
+				</a>
+			</span>
+			<time class="time">
+				<a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+					{{ post.created_at }}
+
+				</a>
+			</time>
+
+			{% if user.is_authenticated and post.user == user %}
+					<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" id="delete" class="">
+						<div class='btn btn-primary btn-sm btn-danger'>	
+						Delete
+						</div>
+					</a>
+			{% endif %}
+		</h5>
+	</div>
+</div>

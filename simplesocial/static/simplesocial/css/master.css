@@ -1,0 +1,50 @@
+html,
+body {
+
+  height: 100%;
+  width: 100%;
+
+  background: #000000;
+  margin: 0;
+  color: white;
+}
+
+#note {
+  position: absolute;
+  color: rgba(249,241,204,1);
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: auto;
+  text-align: center;
+  user-select: none;
+  font-family: Arial;
+}
+
+.mynav{
+  color: #FFDF30;
+}
+
+.mynav-content{
+  color: #FFDF30;
+}
+
+.btn-warning{
+  color: #121212;
+}
+
+.bg-transp{
+  background: transparent;
+}
+
+.mycontent{
+  background: transparent;  
+}
+
+.post{
+  margin-bottom: 5px
+}
+
+.posts{
+  margin-bottom: 10px
+}

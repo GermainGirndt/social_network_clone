@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'accounts',
+    'groups',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIR = [STATIC_DIR]
+STATICFILES_DIRS = [STATIC_DIR]
 
 
 # url in templates
